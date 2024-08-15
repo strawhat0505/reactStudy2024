@@ -10,6 +10,12 @@ function TodoList() {
     setListStyle('disc')
   }
 
+  const handleEnter = (e) => {
+    if (e.key === 'Enter'){
+      addTodo();
+    }
+  }
+
   const addTodo = () => {
     if (input.trim() !== '') {
       setTodos([...todos, input]);
@@ -33,6 +39,8 @@ function TodoList() {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
+          onKeyDown={handleEnter}
+          
         />
         <button className='Button' onClick={addTodo}>Plus</button>
       </div>
@@ -53,3 +61,6 @@ function TodoList() {
 }
 
 export default TodoList;
+
+
+
